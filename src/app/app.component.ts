@@ -13,18 +13,6 @@ export class AppComponent
   title = "Notiz";
   iconPath = "./assets/icon.png";
 
-  aboutDescription = ["A small note app developed", "using Angular, ElectronJS and CSS Grid system."];
-  aboutInfo = "Click to create a new note...";
-
-  AboutClick()
-  {
-    this.electronService.ipcRenderer.send("about",0);
-  }
-  NotesClick()
-  {
-    this.electronService.ipcRenderer.send("notes",0);
-  }
-
   CreditsClick()
   {
     this.electronService.ipcRenderer.send("credits",0);
