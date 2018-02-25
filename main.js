@@ -1,6 +1,7 @@
 const {app, BrowserWindow} = require('electron');
   const path = require('path');
   const url = require('url');
+  const {ipcMain} = require('electron');
 
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
@@ -51,3 +52,37 @@ const {app, BrowserWindow} = require('electron');
     // dock icon is clicked and there are no other windows open.
     if (win === null) createWindow();
   })
+
+  ipcMain.on("about", (event, arg) =>
+  {
+    console.log(arg);  // prints "ping"
+    // event.sender.send('asynchronous-reply', 'pong');
+  });
+
+  ipcMain.on("notes", (event, arg) =>
+  {
+    console.log(arg);  // prints "ping"
+    // event.sender.send('asynchronous-reply', 'pong2');
+  });
+
+  ipcMain.on("credits", (event, arg) =>
+  {
+    console.log(arg);  // prints "ping"
+    // event.sender.send('asynchronous-reply', 'pong3');
+  });
+
+  ipcMain.on("minimize", (event, arg) =>
+  {
+    win.minimize();
+  });
+
+  ipcMain.on("maximize", (event, arg) =>
+  {
+    if(win.isMaximized())win.unmaximize();
+    else win.maximize();
+  });
+
+  ipcMain.on("quit", (event, arg) =>
+  {
+     app.quit();
+  });

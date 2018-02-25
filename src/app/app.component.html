@@ -7,15 +7,26 @@
     </div>
 
     <div>
-      <div class="inlineUI">About</div>
-      <div class="inlineUI">Notes</div>
+      <div class="inlineUI active" (click)="AboutClick()">About</div>
+      <div class="inlineUI" (click)="NotesClick()">Notes</div>
     </div>
 
     <div class="right-navbar">
-      <div class="inlineUI">?</div>
-      <div class="inlineUI">-</div>
-      <div class="inlineUI" style="font-size:16px;">⛶</div>
-      <div class="inlineUI">X</div>
+      <div class="inlineUI" (click)="CreditsClick()">?</div>
+      <div class="inlineUI" (click)="MinimizeClick()">-</div>
+      <div class="inlineUI" (click)="MaximizeClick()" style="font-size:16px;">⛶</div>
+      <div class="inlineUI" (click)="QuitClick()">X</div>
     </div>
 
 </nav>
+
+<div id="aboutContainer">
+
+  <img src="{{iconPath}}" alt="" style="width:200px;height:200px;">
+  <br>
+  <div id="aboutTitle">{{title}}</div>
+  <br>
+  <div id="aboutDescription">{{aboutDescription[0]}}<br>{{aboutDescription[1]}}</div>
+  <div id="aboutInfo">{{aboutInfo}}</div>
+
+</div>
