@@ -13,6 +13,9 @@ export class AppComponent
   title = "Notiz";
   iconPath = "./assets/icon.png";
 
+  pages = ["About","Notes"];
+  activePageIndex = 0;
+
   CreditsClick()
   {
     this.electronService.ipcRenderer.send("credits",0);

@@ -5,15 +5,15 @@
     </div>
 
     <div>
-      <div class="inlineUI" routerLink="">About</div>
-      <div class="inlineUI" routerLink="notes">Notes</div>
+      <div class="inlineUI" (click)="activePageIndex = 0;" [ngClass]="{'active': activePageIndex == 0}" routerLink="">{{pages[0]}}</div>
+      <div class="inlineUI" (click)="activePageIndex = 1;" [ngClass]="{'active': activePageIndex == 1}" routerLink="notes">{{pages[1]}}</div>
     </div>
 
     <div class="right-navbar">
       <div class="inlineUI" (click)="CreditsClick()">?</div>
       <div class="inlineUI" (click)="MinimizeClick()">-</div>
       <div class="inlineUI" (click)="MaximizeClick()" style="font-size:16px;">⛶</div>
-      <div class="inlineUI" (click)="QuitClick()">X</div>
+      <div class="inlineUI" (click)="QuitClick()" style="margin-right:0;">X</div>
     </div>
 
 </nav>

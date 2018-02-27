@@ -26,11 +26,18 @@
 .inlineUI
 {
   display: inline-block;
+  margin-right: -5px; /* Display inline block gap spaces fix */
+
   padding:10px;
   text-align: center;
   cursor: pointer;
   transition: all 0.25s ease-out;
   -webkit-app-region: no-drag;
+}
+
+.inlineUI:focus
+{
+  outline:0;
 }
 
 .inlineUI.active
