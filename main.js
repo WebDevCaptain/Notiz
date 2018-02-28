@@ -5,16 +5,16 @@ const {app, BrowserWindow} = require('electron');
 
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
-  let win;
+  let mainWindow, creditsWindow;
 
-  function createWindow ()
+  function createMainWindow ()
   {
     // Create the browser window.
-    win = new BrowserWindow({width: 640, height: 560, 'minWidth': 640, 'minHeight': 560, frame: false, titleBarStyle: 'hidden', icon: "icon.ico"});
+    mainWindow = new BrowserWindow({width: 640, height: 560, 'minWidth': 640, 'minHeight': 560, frame: false, titleBarStyle: 'hidden', icon: "icon.ico"});
 
     // and load the index.html of the app.
-    win.loadURL(url.format(
-      {
+    mainWindow.loadURL(url.format(
+    {
       pathname: path.join(__dirname, 'dist/index.html'),
       protocol: 'file:',
       slashes: true
@@ -24,19 +24,37 @@ const {app, BrowserWindow} = require('electron');
     // win.webContents.openDevTools();
 
     // Emitted when the window is closed.
-    win.on('closed', () =>
+    mainWindow.on('closed', () =>
     {
       // Dereference the window object, usually you would store windows
       // in an array if your app supports multi windows, this is the time
       // when you should delete the corresponding element.
-      win = null;
+      mainWindow = null;
+      app.quit();
+    });
+  }
+
+  function createCreditsWindow()
+  {
+    creditsWindow = new BrowserWindow({width:400, height:320, resizable: false, icon: "icon.ico"});
+
+    creditsWindow.loadURL(url.format(
+    {
+      pathname: path.join(__dirname, 'dist/credits.html'),
+      protocol: 'file:',
+      slashes: true
+    }));
+
+    creditsWindow.on('closed', () =>
+    {
+      creditsWindow = null;
     });
   }
 
   // This method will be called when Electron has finished
   // initialization and is ready to create browser windows.
   // Some APIs can only be used after this event occurs.
-  app.on('ready', createWindow);
+  app.on('ready', createMainWindow);
 
   // Quit when all windows are closed.
   app.on('window-all-closed', () =>
@@ -50,7 +68,7 @@ const {app, BrowserWindow} = require('electron');
   {
     // On macOS it's common to re-create a window in the app when the
     // dock icon is clicked and there are no other windows open.
-    if (win === null) createWindow();
+    if (mainWindow === null) createMainWindow();
   })
 
   ipcMain.on("about", (event, arg) =>
@@ -67,19 +85,18 @@ const {app, BrowserWindow} = require('electron');
 
   ipcMain.on("credits", (event, arg) =>
   {
-    console.log(arg);  // prints "ping"
-    // event.sender.send('asynchronous-reply', 'pong3');
+    createCreditsWindow();
   });
 
   ipcMain.on("minimize", (event, arg) =>
   {
-    win.minimize();
+    mainWindow.minimize();
   });
 
   ipcMain.on("maximize", (event, arg) =>
   {
-    if(win.isMaximized())win.unmaximize();
-    else win.maximize();
+    if(mainWindow.isMaximized()) mainWindow.unmaximize();
+    else mainWindow.maximize();
   });
 
   ipcMain.on("quit", (event, arg) =>

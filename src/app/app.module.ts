@@ -9,12 +9,14 @@ import { NotesComponent } from './notes/notes.component';
 import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [
+  declarations:
+  [
     AppComponent,
     AboutComponent,
     NotesComponent
   ],
-  imports: [
+  imports:
+  [
     BrowserModule,
     NgxElectronModule,
     AppRoutingModule
