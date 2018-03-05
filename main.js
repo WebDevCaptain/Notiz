@@ -5,7 +5,7 @@ const {app, BrowserWindow} = require('electron');
 
   // Keep a global reference of the window object, if you don't, the window will
   // be closed automatically when the JavaScript object is garbage collected.
-  let mainWindow, creditsWindow;
+  let mainWindow;
 
   function createMainWindow ()
   {
@@ -31,23 +31,6 @@ const {app, BrowserWindow} = require('electron');
       // when you should delete the corresponding element.
       mainWindow = null;
       app.quit();
-    });
-  }
-
-  function createCreditsWindow()
-  {
-    creditsWindow = new BrowserWindow({width:400, height:320, resizable: false, icon: "icon.ico"});
-
-    creditsWindow.loadURL(url.format(
-    {
-      pathname: path.join(__dirname, 'dist/credits.html'),
-      protocol: 'file:',
-      slashes: true
-    }));
-
-    creditsWindow.on('closed', () =>
-    {
-      creditsWindow = null;
     });
   }
 
@@ -85,7 +68,7 @@ const {app, BrowserWindow} = require('electron');
 
   ipcMain.on("credits", (event, arg) =>
   {
-    createCreditsWindow();
+    console.log(arg);  // prints "ping"
   });
 
   ipcMain.on("minimize", (event, arg) =>

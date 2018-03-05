@@ -5,11 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './credits.component.html',
   styleUrls: ['./credits.component.css']
 })
-export class CreditsComponent implements OnInit {
+export class CreditsComponent implements OnInit
+{
 
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit()
+  {
+
   }
 
 }

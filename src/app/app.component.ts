@@ -8,7 +8,7 @@ import { ElectronService } from 'ngx-electron';
 })
 export class AppComponent
 {
-  constructor(private electronService: ElectronService) {}
+  constructor(private electronService: ElectronService) { }
 
   title = "Notiz";
   iconPath = "./assets/icon.png";

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxElectronModule } from 'ngx-electron';
-import { CommonModule } from '@angular/common';
 
 import { CreditsComponent } from './credits.component';
 
@@ -13,8 +12,7 @@ import { CreditsComponent } from './credits.component';
   imports:
   [
     BrowserModule,
-    NgxElectronModule,
-    CommonModule
+    NgxElectronModule
   ],
   providers: [],
   bootstrap: [CreditsComponent]
