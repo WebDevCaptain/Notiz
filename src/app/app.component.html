@@ -1,7 +1,8 @@
-<nav class="navbar" *ngIf="activePageIndex === 0">
+<nav class="navbar">
     <div class="left-navbar">
-      <img src="{{iconPath}}" alt="" style="width:28px;height:28px;">
-      <div style="display: inline-block; padding: 7px; font-weight: 700; letter-spacing:1px;">{{title}}</div>
+      <i class="fas fa-arrow-left" (click)="activePageIndex = 1;" routerLink="notes" *ngIf="activePageIndex === 2"></i>
+      <img src="{{iconPath}}" alt="" style="width:28px;height:28px;" *ngIf="activePageIndex != 2">
+      <div style="display: inline-block; padding: 7px; font-weight: 700; letter-spacing:1px;" *ngIf="activePageIndex != 2">{{title}}</div>
     </div>
 
     <div>

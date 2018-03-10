@@ -8,11 +8,11 @@ import { AppComponent } from '../app.component';
 })
 export class NotesComponent implements OnInit {
 
-  constructor(private appComponent: AppComponent) { }
+  constructor(public appComponent: AppComponent) { }
 
   ngOnInit()
   {
-    
+
   }
 
 }

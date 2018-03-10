@@ -2,12 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { NgxElectronModule } from 'ngx-electron';
 
+import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
+
 import { AboutComponent } from './about/about.component';
 import { NotesComponent } from './notes/notes.component';
-
-import { AppRoutingModule } from './app-routing.module';
 import { CreditsComponent } from './credits/credits.component';
+import { SpecificNoteComponent } from './specific-note/specific-note.component';
 
 @NgModule({
   declarations:
@@ -15,7 +17,8 @@ import { CreditsComponent } from './credits/credits.component';
     AppComponent,
     AboutComponent,
     NotesComponent,
-    CreditsComponent
+    CreditsComponent,
+    SpecificNoteComponent
   ],
   imports:
   [

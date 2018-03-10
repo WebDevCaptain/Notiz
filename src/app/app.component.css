@@ -10,6 +10,13 @@
   -webkit-app-region: drag;
 }
 
+.fa-arrow-left
+{
+  margin-left: 4px;
+  cursor:pointer;
+  -webkit-app-region: no-drag;
+}
+
 .left-navbar
 {
   display: flex;
@@ -33,11 +40,6 @@
   cursor: pointer;
   transition: all 0.25s ease-out;
   -webkit-app-region: no-drag;
-}
-
-.inlineUI:focus
-{
-  outline:0;
 }
 
 .inlineUI.active
