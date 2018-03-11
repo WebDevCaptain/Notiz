@@ -1,0 +1,90 @@
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb
+{
+    background: rgb(95,75,139);
+}
+::-webkit-scrollbar-thumb:window-inactive { background: rgb(95,75,139); }
+
+::selection
+{
+  background: rgb(95,75,139);
+  color: white;
+}
+
+.downBar
+{
+  position: fixed;
+  bottom: 0;
+  display: grid;
+  width:100%;
+  grid-template-columns: 1fr 1fr;
+  background-color: rgb(95,75,139);
+  color:white;
+  align-items: center;
+  font-size: 18px;
+}
+
+.inlineUI
+{
+  display: inline-block;
+  margin-right: -5px; /* Display inline block gap spaces fix */
+  padding:10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s ease-out;
+  -webkit-app-region: no-drag;
+}
+
+.left-bar
+{
+  justify-self: left;
+}
+
+.right-bar
+{
+  justify-self: right;
+}
+
+.noteContainer
+{
+  overflow-y: auto;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 12px;
+  padding-right: 12px;
+
+  position: fixed;
+  top:65px;
+  bottom:65px;
+  left:25px;
+  right:25px;
+  border:solid;
+  border-color:rgb(95,75,139);
+  border-width: 3px;
+  width:100% - 48px;
+  height:100% - 124px;
+}
+
+textarea
+{
+  overflow-y:hidden;
+  width:100%;
+  height:auto;
+  resize: none;
+}
+
+.noteTitle
+{
+  font-weight: 400;
+  font-size:24px;
+  display: block;
+  border:none;
+}
+
+.noteContent
+{
+  font-size:16px;
+  display: block;
+  border:none;
+}

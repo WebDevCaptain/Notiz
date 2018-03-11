@@ -1,6 +1,7 @@
 #aboutContainer
 {
   text-align: center;
+  cursor: pointer;
   letter-spacing: 1px;
   color: rgb(95,75,139);
   position: absolute;
